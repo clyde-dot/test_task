@@ -35,8 +35,11 @@ npm install
 DATABASE_URL="postgresql://admin:admin@localhost:5432/postgres?schema=public"
 PORT=4200
 ```
-Для проверки через postman:https://.postman.co/workspace/My-Workspace~6cdc7d9a-91a8-4e2a-83ca-4124b9dddaa7/collection/27280664-cca9df63-4459-4cc1-a6fb-15626befa157?action=share&creator=27280664
+Для проверки через postman:
 
+```Postman
+https://.postman.co/workspace/My-Workspace~6cdc7d9a-91a8-4e2a-83ca-4124b9dddaa7/collection/27280664-cca9df63-4459-4cc1-a6fb-15626befa157?action=share&creator=27280664
+```
 ---
 
 ## Локальный запуск
