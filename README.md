@@ -35,11 +35,13 @@ npm install
 DATABASE_URL="postgresql://admin:admin@localhost:5432/postgres?schema=public"
 PORT=4200
 ```
-Для проверки через postman:
+
+Для проверки через Postman:
 
 ```Postman
 https://.postman.co/workspace/My-Workspace~6cdc7d9a-91a8-4e2a-83ca-4124b9dddaa7/collection/27280664-cca9df63-4459-4cc1-a6fb-15626befa157?action=share&creator=27280664
 ```
+
 ---
 
 ## Локальный запуск
@@ -83,7 +85,22 @@ npm run db:push
 
 ## Логирование
 
-Используется **Pino**
+Используется **Pino** для структурированного логирования.
+
+---
+
+## Роуты API
+
+| Метод | URL | Описание |
+|:------|:----|:---------|
+| `POST` | `/appeals/` | Создать новую заявку. Требует `title` и `description`. Валидация полей. |
+| `GET` | `/appeals/` | Получить список всех заявок с фильтрацией по дате и статусу. |
+| `GET` | `/appeals/:id` | Получить заявку по ID. |
+| `PATCH` | `/appeals/:id/progress` | Обновить статус заявки на "В процессе". Требует ID заявки. |
+| `PATCH` | `/appeals/:id/done` | Обновить статус заявки на "Выполнено". Требует ID и дополнительные данные. |
+| `PATCH` | `/appeals/:id/cancel` | Отменить заявку. Требует ID и причину отмены. |
+| `PATCH` | `/appeals/cancel-all-progress` | Отменить все заявки в статусе "В процессе". Требует причину отмены. |
+
 ---
 
 ## Требования
