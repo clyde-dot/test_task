@@ -1,6 +1,6 @@
 import { checkSchema } from "express-validator"
 import dayjs from "dayjs"
-import { AppealStatus } from "../../generated/prisma"
+import { AppealStatus } from "../../../generated/prisma"
 
 export const validationFilterSchemas = checkSchema({
   date: {

@@ -4,11 +4,11 @@ import {
   createAppealValidationSchema,
   doneAppealValidationSchema,
   validateAppealIdSchema,
-} from "../utils/validationSchemas"
+} from "../utils/validation/validationSchemas"
 import appealController from "../controller/appeal.controller"
 import { validationResult } from "express-validator"
-import { validateNoExtraFields } from "../utils/validationNoExtraFields"
-import { validationFilterSchemas } from "../utils/validationFilterSchemas"
+import { validateNoExtraFields } from "../utils/validation/validationNoExtraFields"
+import { validationFilterSchemas } from "../utils/validation/validationFilterSchemas"
 
 const appealRouter = Router()
 

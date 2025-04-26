@@ -1,5 +1,5 @@
 import { checkSchema } from "express-validator"
-import appealService from "../services/appeal.service"
+import appealService from "../../services/appeal.service"
 
 export const createAppealValidationSchema = checkSchema({
   title: {

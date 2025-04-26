@@ -10,7 +10,7 @@ class AppealController {
       const { title, description } = req.body
 
       const newAppeal = await appealService.create({ title, description })
-      logger.info(`Обращение ${newAppeal.id} успешно создано`)
+      logger.info(`Appeal ${newAppeal.id} created`)
 
       return res.status(201).json({ message: "Обращение успешно создано" })
     } catch (error: Error | any) {
@@ -54,7 +54,7 @@ class AppealController {
         status: AppealStatus.IN_PROGRESS,
       })
 
-      logger.info(`Обращение ${appeal.id} взято в работу`)
+      logger.info(`Appeal ${appeal.id} in progress`)
 
       return res
         .status(200)
@@ -75,7 +75,7 @@ class AppealController {
         solutionProblem,
       })
 
-      logger.info(`Обращение ${appeal.id} завершено`)
+      logger.info(`Appeal ${appeal.id} done`)
 
       return res.status(200).json({ message: "Обращение успешно завершено" })
     } catch (error: Error | any) {
@@ -94,7 +94,7 @@ class AppealController {
         cancelReason,
       })
 
-      logger.info(`Обращение ${appeal.id} отменено`)
+      logger.info(`Appeal ${appeal.id} cancelled`)
 
       return res.status(200).json({ message: "Обращение успешно отменено" })
     } catch (error: Error | any) {
@@ -112,6 +112,7 @@ class AppealController {
           .status(404)
           .json({ message: "Обращения с статусом 'В работе' не найдены" })
       }
+      logger.info(`All progress appeals cancelled`)
       return res
         .status(200)
         .json({ message: "Все обращения с статусом 'В работе' отменены" })
