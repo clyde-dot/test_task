@@ -19,7 +19,7 @@ Backend-приложение на **TypeScript + Express + Prisma**.
 1. Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/your-username/test_task.git
+git clone https://github.com/clyde-dot/test_task.git
 cd test_task
 ```
 
