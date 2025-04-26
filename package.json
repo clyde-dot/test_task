@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc",
-    "dev": "tsc -w"
+    "start": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
+    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && npx prisma generate",
+    "db:push": "npx prisma db push"
+  },
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -14,14 +22,24 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.2",
     "express": "^5.1.0",
+    "pino-pretty": "^13.0.0",
     "prisma": "^6.6.0",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
-    "dotenv": "^16.5.0"
+    "body-parser": "^2.2.0",
+    "class-transformer": "^0.5.1",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.5.0",
+    "express-validator": "^7.2.1",
+    "morgan": "^1.10.0",
+    "pino": "^9.6.0",
+    "reflect-metadata": "^0.2.2"
   }
 }

@@ -122,6 +122,8 @@ exports.Prisma.AppealScalarFieldEnum = {
   title: 'title',
   description: 'description',
   status: 'status',
+  solutionProblem: 'solutionProblem',
+  cancelReason: 'cancelReason',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -135,10 +137,15 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.AppealStatus = exports.$Enums.AppealStatus = {
   NEW: 'NEW',
-  AT_WORK: 'AT_WORK',
-  COMPLETED: 'COMPLETED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  DONE: 'DONE',
   CANCELLED: 'CANCELLED'
 };
 

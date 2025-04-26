@@ -9,10 +9,12 @@ datasource db {
 }
 
 model Appeal {
-  id          String       @id @default(uuid())
-  title       String
-  description String
-  status      AppealStatus @default(NEW)
+  id              String       @id @default(uuid())
+  title           String
+  description     String
+  status          AppealStatus @default(NEW)
+  solutionProblem String?      @map("solution_problem")
+  cancelReason    String?      @map("reason_cancell")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -22,7 +24,7 @@ model Appeal {
 
 enum AppealStatus {
   NEW
-  AT_WORK
-  COMPLETED
+  IN_PROGRESS
+  DONE
   CANCELLED
 }

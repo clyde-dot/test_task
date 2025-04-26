@@ -25,8 +25,8 @@ export type Appeal = $Result.DefaultSelection<Prisma.$AppealPayload>
 export namespace $Enums {
   export const AppealStatus: {
   NEW: 'NEW',
-  AT_WORK: 'AT_WORK',
-  COMPLETED: 'COMPLETED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  DONE: 'DONE',
   CANCELLED: 'CANCELLED'
 };
 
@@ -903,6 +903,8 @@ export namespace Prisma {
     title: string | null
     description: string | null
     status: $Enums.AppealStatus | null
+    solutionProblem: string | null
+    cancelReason: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -912,6 +914,8 @@ export namespace Prisma {
     title: string | null
     description: string | null
     status: $Enums.AppealStatus | null
+    solutionProblem: string | null
+    cancelReason: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -921,6 +925,8 @@ export namespace Prisma {
     title: number
     description: number
     status: number
+    solutionProblem: number
+    cancelReason: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -932,6 +938,8 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
+    solutionProblem?: true
+    cancelReason?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -941,6 +949,8 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
+    solutionProblem?: true
+    cancelReason?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -950,6 +960,8 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
+    solutionProblem?: true
+    cancelReason?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1032,6 +1044,8 @@ export namespace Prisma {
     title: string
     description: string
     status: $Enums.AppealStatus
+    solutionProblem: string | null
+    cancelReason: string | null
     createdAt: Date
     updatedAt: Date
     _count: AppealCountAggregateOutputType | null
@@ -1058,6 +1072,8 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
+    solutionProblem?: boolean
+    cancelReason?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["appeal"]>
@@ -1067,6 +1083,8 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
+    solutionProblem?: boolean
+    cancelReason?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["appeal"]>
@@ -1076,6 +1094,8 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
+    solutionProblem?: boolean
+    cancelReason?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["appeal"]>
@@ -1085,11 +1105,13 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
+    solutionProblem?: boolean
+    cancelReason?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type AppealOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["appeal"]>
+  export type AppealOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "solutionProblem" | "cancelReason" | "createdAt" | "updatedAt", ExtArgs["result"]["appeal"]>
 
   export type $AppealPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Appeal"
@@ -1099,6 +1121,8 @@ export namespace Prisma {
       title: string
       description: string
       status: $Enums.AppealStatus
+      solutionProblem: string | null
+      cancelReason: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["appeal"]>
@@ -1528,6 +1552,8 @@ export namespace Prisma {
     readonly title: FieldRef<"Appeal", 'String'>
     readonly description: FieldRef<"Appeal", 'String'>
     readonly status: FieldRef<"Appeal", 'AppealStatus'>
+    readonly solutionProblem: FieldRef<"Appeal", 'String'>
+    readonly cancelReason: FieldRef<"Appeal", 'String'>
     readonly createdAt: FieldRef<"Appeal", 'DateTime'>
     readonly updatedAt: FieldRef<"Appeal", 'DateTime'>
   }
@@ -1915,6 +1941,8 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     status: 'status',
+    solutionProblem: 'solutionProblem',
+    cancelReason: 'cancelReason',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1936,6 +1964,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -2010,6 +2046,8 @@ export namespace Prisma {
     title?: StringFilter<"Appeal"> | string
     description?: StringFilter<"Appeal"> | string
     status?: EnumAppealStatusFilter<"Appeal"> | $Enums.AppealStatus
+    solutionProblem?: StringNullableFilter<"Appeal"> | string | null
+    cancelReason?: StringNullableFilter<"Appeal"> | string | null
     createdAt?: DateTimeFilter<"Appeal"> | Date | string
     updatedAt?: DateTimeFilter<"Appeal"> | Date | string
   }
@@ -2019,6 +2057,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    solutionProblem?: SortOrderInput | SortOrder
+    cancelReason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2031,6 +2071,8 @@ export namespace Prisma {
     title?: StringFilter<"Appeal"> | string
     description?: StringFilter<"Appeal"> | string
     status?: EnumAppealStatusFilter<"Appeal"> | $Enums.AppealStatus
+    solutionProblem?: StringNullableFilter<"Appeal"> | string | null
+    cancelReason?: StringNullableFilter<"Appeal"> | string | null
     createdAt?: DateTimeFilter<"Appeal"> | Date | string
     updatedAt?: DateTimeFilter<"Appeal"> | Date | string
   }, "id">
@@ -2040,6 +2082,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    solutionProblem?: SortOrderInput | SortOrder
+    cancelReason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: AppealCountOrderByAggregateInput
@@ -2055,6 +2099,8 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Appeal"> | string
     description?: StringWithAggregatesFilter<"Appeal"> | string
     status?: EnumAppealStatusWithAggregatesFilter<"Appeal"> | $Enums.AppealStatus
+    solutionProblem?: StringNullableWithAggregatesFilter<"Appeal"> | string | null
+    cancelReason?: StringNullableWithAggregatesFilter<"Appeal"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Appeal"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Appeal"> | Date | string
   }
@@ -2064,6 +2110,8 @@ export namespace Prisma {
     title: string
     description: string
     status?: $Enums.AppealStatus
+    solutionProblem?: string | null
+    cancelReason?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2073,6 +2121,8 @@ export namespace Prisma {
     title: string
     description: string
     status?: $Enums.AppealStatus
+    solutionProblem?: string | null
+    cancelReason?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2082,6 +2132,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+    solutionProblem?: NullableStringFieldUpdateOperationsInput | string | null
+    cancelReason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2091,6 +2143,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+    solutionProblem?: NullableStringFieldUpdateOperationsInput | string | null
+    cancelReason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2100,6 +2154,8 @@ export namespace Prisma {
     title: string
     description: string
     status?: $Enums.AppealStatus
+    solutionProblem?: string | null
+    cancelReason?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2109,6 +2165,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+    solutionProblem?: NullableStringFieldUpdateOperationsInput | string | null
+    cancelReason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2118,6 +2176,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+    solutionProblem?: NullableStringFieldUpdateOperationsInput | string | null
+    cancelReason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2144,6 +2204,21 @@ export namespace Prisma {
     not?: NestedEnumAppealStatusFilter<$PrismaModel> | $Enums.AppealStatus
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2155,11 +2230,18 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type AppealCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    solutionProblem?: SortOrder
+    cancelReason?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2169,6 +2251,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    solutionProblem?: SortOrder
+    cancelReason?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2178,6 +2262,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    solutionProblem?: SortOrder
+    cancelReason?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2210,6 +2296,24 @@ export namespace Prisma {
     _max?: NestedEnumAppealStatusFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2230,6 +2334,10 @@ export namespace Prisma {
 
   export type EnumAppealStatusFieldUpdateOperationsInput = {
     set?: $Enums.AppealStatus
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -2255,6 +2363,20 @@ export namespace Prisma {
     in?: $Enums.AppealStatus[] | ListEnumAppealStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.AppealStatus[] | ListEnumAppealStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumAppealStatusFilter<$PrismaModel> | $Enums.AppealStatus
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2304,6 +2426,34 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumAppealStatusFilter<$PrismaModel>
     _max?: NestedEnumAppealStatusFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
